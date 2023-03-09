@@ -1,5 +1,3 @@
-# Autonomous Racing ( MACHATHON-4.0 )
-
 <div align="center">
 <img src="https://user-images.githubusercontent.com/69261710/222896816-c344b3b7-c992-445e-9706-0e26c098153d.png" style="width:1000px;" alt="Cover">
 </div>
@@ -55,6 +53,16 @@ This repo demonstrates our solution to this problem, **Team *Speeder Than Speed*
 # Machathon Results
 
 ![Screenshot from 2023-03-04 14-03-26](https://user-images.githubusercontent.com/69261710/222900021-4db77edc-1347-4104-ab94-152138930176.png)
+
+# How to run
+## Simulation Phase
+1. Follow the instructions in the [simulation repo](
+  https://github.com/NouranHany/Machathon4.0-Judge) to run the simulation environment.
+2. Clone this repo.
+3. Run the simulation agent by running the following command:
+```
+python3 simulation_agent.py
+```
 
 
  <h1> <img src="https://user-images.githubusercontent.com/69261710/222900196-c184a5f7-77ef-4baf-8915-61723d6efe9e.png" width=45px  alt="" align="center"/> Champions
