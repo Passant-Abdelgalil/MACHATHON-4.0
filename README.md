@@ -54,6 +54,10 @@ This repo demonstrates our solution to this problem, **Team *Speeder Than Speed*
 
 ![Screenshot from 2023-03-04 14-03-26](https://user-images.githubusercontent.com/69261710/222900021-4db77edc-1347-4104-ab94-152138930176.png)
 
+# Solution Demo
+![](./images/output_example.gif)
+![](./images/output_example2.gif)
+
 # How to run
 ## Simulation Phase
 1. Follow the instructions in the [simulation repo](
