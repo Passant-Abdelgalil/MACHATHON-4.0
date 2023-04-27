@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 from types import tuple
+import math
+from scipy.stats import linregress
 
 
 def get_center_lane(image: np.ndarray) -> np.ndarray:
@@ -53,3 +55,47 @@ def get_center(img: np.ndarray) -> tuple(int, int):
         cv2.circle(img, (cxm, cym), 20, (0, 0, 0), -1)
 
     return cxm, cxy
+
+
+def get_center_lane_slope(img: np.ndarray) -> float:
+    """
+    Get the slope of the center lane by finding the slope of the largest red contour
+    Parameters
+    ----------
+    img : np.ndarray
+        The image to process
+    """
+
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+    lower_red = np.array([150, 70, 0])
+    upper_red = np.array([255, 255, 255])
+
+    mask1 = cv2.inRange(hsv, lower_red, upper_red)
+
+    lower_red = np.array([0, 100, 0])
+    upper_red = np.array([25, 255, 255])
+
+    mask2 = cv2.inRange(hsv, lower_red, upper_red)
+
+    result = cv2.bitwise_or(mask1, mask2)
+
+    # remove noise by performing opening morph ex
+    kernel = np.ones((5, 5))
+    result = cv2.dilate(result, kernel)
+
+    # find contours corresponding to different red areas of the road
+    contours, _ = cv2.findContours(
+        result, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    area_contour = -1
+    slope = 0
+
+    # get the slope of the largest contour
+    for contour in contours:
+        area = cv2.contourArea(contour)
+        if area > area_contour:
+            area_contour = area
+            slope, _, _, _, _ = linregress(contour[:, 0, :])
+            slope = math.atan(slope)/np.pi * 180.
+
+    return slope

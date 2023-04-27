@@ -64,6 +64,12 @@ This repo demonstrates our solution to this problem, **Team *Speeder Than Speed*
 python3 simulation_agent.py
 ```
 
+## Real Car Phase
+The communication between the car and the computer is done using [ROS](https://www.ros.org/). To find more about the competition's car, check [this repo](
+  https://that1panda.notion.site/Rules-Book-and-Documentation-2b4b749466394fd4abd25aecaac8535c)
+
+Our solution is implemented as a ROS node that subscribes to the camera topic and publishes the car's control commands. you can find the node in the  `competition_agent.py` 
+
 
  <h1> <img src="https://user-images.githubusercontent.com/69261710/222900196-c184a5f7-77ef-4baf-8915-61723d6efe9e.png" width=45px  alt="" align="center"/> Champions
  </h1>
